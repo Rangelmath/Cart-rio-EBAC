@@ -4,7 +4,7 @@
 #include <string.h> //biblioteca responsável pela string
 //Funções 
 int registro ()
-{
+    {
 	
 	printf("Você escolheu o registro de nomes!\n");
     printf("Deseja continuar?\n");
@@ -16,68 +16,67 @@ int registro ()
     scanf("%d", &escolha); //Armazenamento da escolha do usuário
     system("cls");
 	
-    if   (escolha==1) //Inicia-se o registro!
-    {
-	char arquivo [40];
-	char cpf [40];
-	char nome [40];
-	char sobrenome [40];
-	char cargo [40];
+        if   (escolha==1) //Inicia-se o registro!
+        {
+	    char arquivo [40];
+	    char cpf [40];
+	    char nome [40];
+	    char sobrenome [40];
+     	char cargo [40];
 	
-	printf("Digite o CPF a ser cadastrado: ");
-	scanf("%s", cpf);  //Armazenamento da escolha do usuário
-	strcpy(arquivo, cpf); //"string copy (strcpy) - responsável por copiar os valores das string
+    	printf("Digite o CPF a ser cadastrado: ");
+    	scanf("%s", cpf);  //Armazenamento da escolha do usuário
+    	strcpy(arquivo, cpf); //"string copy (strcpy) - responsável por copiar os valores das string
 	
-	FILE *file; //Comando para criar o arquivo
-	file = fopen(arquivo, "w"); //Abre o arquivo (fopen) e escreve ("w")
-	fprintf(file, cpf); //Salvo o valor da variável cpf no arquivo 
-	fclose(file); //Fecha o arquivo
+    	FILE *file; //Comando para criar o arquivo
+    	file = fopen(arquivo, "w"); //Abre o arquivo (fopen) e escreve ("w")
+    	fprintf(file, cpf); //Salvo o valor da variável cpf no arquivo 
+    	fclose(file); //Fecha o arquivo
 	
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
-	fclose(file); 
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
+    	fclose(file); 
 	
-	printf("Digite o nome a ser cadastrado: ");
-	scanf("%s", nome); //Armazenamento da escolha do usuário
+    	printf("Digite o nome a ser cadastrado: ");
+    	scanf("%s", nome); //Armazenamento da escolha do usuário
 	
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file, nome);  //Salvo o valor da variável nome no arquivo
-	fclose(file);
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file, nome);  //Salvo o valor da variável nome no arquivo
+    	fclose(file);
 
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
-	fclose(file); 
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
+    	fclose(file); 
 	
-	printf("Digite o sobrenome a ser cadastrado: ");
-	scanf("%s", sobrenome); //Armazenamento da escolha do usuário
+    	printf("Digite o sobrenome a ser cadastrado: ");
+    	scanf("%s", sobrenome); //Armazenamento da escolha do usuário
 	
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file, sobrenome);  //Salvo o valor da variável sobrenome no arquivo
-	fclose(file);
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file, sobrenome);  //Salvo o valor da variável sobrenome no arquivo
+    	fclose(file);
 	
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
-	fclose(file); 
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file,","); //Salvo o arquivo e insiro a virgula para separar as variáveis
+    	fclose(file); 
 	
-	printf("Digite o cargo a ser cadastrado: ");
-	scanf("%s", cargo); //Armazenamento da escolha do usuário
+    	printf("Digite o cargo a ser cadastrado: ");
+    	scanf("%s", cargo); //Armazenamento da escolha do usuário
 	
-	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
-	fprintf(file, cargo);  //Salvo o valor da variável cargo no arquivo
-	fclose(file);
+    	file = fopen (arquivo, "a"); //Abre o arquivo (fopen) e atualiza ("a")
+    	fprintf(file, cargo);  //Salvo o valor da variável cargo no arquivo
+    	fclose(file);
 	
-    }
-
-    if (escolha==2) //Volta ao menu!
-    {
-    return 0;
-    }
-    if (escolha>2)
-    {
-    printf("Essa opção não existe!\n");
-    system("pause");
-    } 
-
+        }
+           if (escolha==2) //Volta ao menu!
+           {
+           return 0;
+           }
+               if (escolha>2)
+               {
+               printf("Essa opção não existe!\n");
+               system("pause");
+               } 
+	system("cls");
 } //end registro
 
 int consultar ()
@@ -87,13 +86,12 @@ int consultar ()
 	char conteudo [200];
 	
 	printf("Você escolheu consultar os nomes!\n");
-	
 	printf ("Digite o CPF a ser consultado: ");
 	scanf("%s", cpf);
 	
 	FILE *file;
 	file = fopen(cpf, "r");
-	
+
 	if (file == NULL)
     {
 	printf("Não foi possivel abrir o arquivo, o mesmo não foi localizado! \n");
@@ -105,8 +103,10 @@ int consultar ()
 		printf("%s", conteudo);
 		printf("\n\n");
 	}
-	system("pause");
 	
+	fclose(file);
+	system("pause");
+	system("cls");
 } //end consultar
 
 int deletar ()
@@ -121,6 +121,7 @@ int deletar ()
 	
 	FILE *file;
 	file = fopen(cpf,"r");
+	fclose(file);
 	if(file == NULL)
 	{
 		printf ("O usuário não se encontra no sistema! \n");
@@ -133,7 +134,7 @@ int deletar ()
 		system("pause");
 
 	}
-
+	system("cls");
 } //end deletar
 
 int dft ()
@@ -145,7 +146,7 @@ int dft ()
 
 int main ()
 
-{
+    {
     int opcao=0; //Definindo variáveis
 	int laco=1;
 	char senhadigitada [10]="a";
@@ -159,11 +160,10 @@ int main ()
 	
 	if(comparacao == 0)
 	{
-	
+	    system("cls");
     	for (laco=1;laco=1;)
 	
     	{
-	        system("cls");
 	        setlocale(LC_ALL,"Portuguese"); //Definindo linguagens 
 	    
 	        printf("\t Escolha a opção desejada do menu:\n\n");
@@ -175,9 +175,9 @@ int main ()
 	
      	    scanf("%d", &opcao); //Armazenamento da escolha do usuário
 	
-    	    system("cls");
+    	    system("cls"); //Limpar tela
 	    
-            switch (opcao) 
+            switch (opcao) //inicio da seleção do menu
             {
     	
                 case 1:  
@@ -202,10 +202,10 @@ int main ()
  
         } //end switch
    } //end for
-} //end main
+} //end if
 
 else
 
 printf("Senha incorreta!");
 
-}
+}//end main
